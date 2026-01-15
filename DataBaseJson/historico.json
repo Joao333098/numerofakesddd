@@ -1,0 +1,102 @@
+{
+    "1319865698855551037": [
+        {
+            "plataforma": "apple",
+            "valor": 0.12,
+            "numero": "5531933042845",
+            "status": "Cancelado/Reembolsado",
+            "timestamp": 1767573973600,
+            "id": "14604353"
+        },
+        {
+            "plataforma": "apple",
+            "valor": 0.12,
+            "numero": "5521920479562",
+            "status": "Cancelado/Reembolsado",
+            "timestamp": 1767574212614,
+            "id": "14604943"
+        },
+        {
+            "plataforma": "Discord",
+            "valor": 0.12,
+            "numero": "5531976104026",
+            "status": "Concluído",
+            "timestamp": 1767574904175,
+            "id": "14606594",
+            "codigo": "152000"
+        },
+        {
+            "plataforma": "apple",
+            "valor": 0.12,
+            "numero": "5585933001734",
+            "status": "Cancelado/Reembolsado",
+            "timestamp": 1767576292107,
+            "id": "14609935"
+        },
+        {
+            "plataforma": "apple",
+            "valor": 0.12,
+            "numero": "5594976047075",
+            "status": "Cancelado/Reembolsado",
+            "timestamp": 1767576361466,
+            "id": "14610065"
+        },
+        {
+            "plataforma": "apple",
+            "valor": 0.12,
+            "numero": "5521920396110",
+            "status": "Cancelado/Reembolsado",
+            "timestamp": 1767576399079,
+            "id": "14610096"
+        },
+        {
+            "plataforma": "apple",
+            "valor": 0.13,
+            "numero": "5521920251041",
+            "status": "Cancelado/Reembolsado",
+            "timestamp": 1767752510209,
+            "id": "15446964"
+        },
+        {
+            "plataforma": "outros",
+            "valor": 0.88,
+            "numero": "5521920284407",
+            "status": "Cancelado/Reembolsado",
+            "timestamp": 1767902719643,
+            "id": "16228275"
+        },
+        {
+            "plataforma": "apple",
+            "valor": 0.13,
+            "numero": "5595933002007",
+            "status": "Cancelado/Reembolsado",
+            "timestamp": 1768029664320,
+            "id": "17006961"
+        }
+    ],
+    "1108137038366134403": [
+        {
+            "tipo": "deposito",
+            "valor": 9.2,
+            "metodo": "PIX",
+            "status": "Concluído",
+            "timestamp": 1767902268482
+        },
+        {
+            "plataforma": "outros",
+            "valor": 0.88,
+            "numero": "5594976039726",
+            "status": "Aguardando SMS",
+            "timestamp": 1767902812461,
+            "id": "16228708"
+        },
+        {
+            "plataforma": "outros",
+            "valor": 0.88,
+            "numero": "5531976079373",
+            "status": "Aguardando SMS",
+            "timestamp": 1767903056784,
+            "id": "16230207"
+        }
+    ]
+}

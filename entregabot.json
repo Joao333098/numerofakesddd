@@ -1,0 +1,35 @@
+[
+    {
+        "type": 17,
+        "accent_color": null,
+        "spoiler": false,
+        "components": [
+            {
+                "type": 10,
+                "content": "## <:raiobranco_cristalstore:1457177790129373259> saldo adicionado"
+            },
+            {
+                "type": 14,
+                "divider": false,
+                "spacing": 2
+            },
+            {
+                "type": 10,
+                "content": "<:membros_cristalstore:1457254954283700348>  Usuário: <@user>\n<:bagdinheiro_cristalstore:1457177684688764948>  Valor Pago: R$10.00\n<:moedas:1457254694438043702>  Saldo Adicionado: R$10.00\n<:pix:1457254722481164494>  Transação: a0bbc206-d86b-4a0d-a90c-a9e9a1a5eebd"
+            },
+            {
+                "type": 14,
+                "divider": true,
+                "spacing": 1
+            },
+            {
+                "type": 10,
+                "content": "<:confirm:1457255097758122058>  Status: Aprovado\n<a:953908880642043954:1457254622396809256>  Saldo adicionado automaticamente!"
+            },
+            {
+                "type": 10,
+                "content": "<:celular:1457254465470992425> Data: 01/01/2026 15:54"
+            }
+        ]
+    }
+]

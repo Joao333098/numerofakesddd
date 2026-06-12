@@ -8,7 +8,6 @@ const { MongoDatabase, initAll } = require('./lib/mongo-db');
 const app = express();
 const PORT = process.env.PORT || 3000;
 const BASE = path.resolve(__dirname, '..');
-const MercadoPagoHandler = require(path.join(BASE, 'Handler/mercadopago'));
 const PIX_EXPIRATION_MS = 10 * 60 * 1000; // 10 minutos
 
 function isPixExpired(createdAt) {
@@ -16,6 +15,7 @@ function isPixExpired(createdAt) {
 }
 
 const services = require('../services.json');
+let MercadoPagoHandler;
 
 let usersDB, saldoDB, historicoDB, depositosDB, codigosDB, configDB, produtosDB, carrinhosDB, rendimentosDB;
 
@@ -1421,20 +1421,24 @@ async function migrateFromJson() {
   }
 }
 
+app.get('/health', (req, res) => res.json({ status: 'ok', uptime: process.uptime() }));
+
 async function start() {
-  await initDatabases();
-  await initCuponsDB();
-  await migrateFromJson();
-  const mpAccessToken = configDB.get('mercadopago.access_token') || configDB.get('mp.access_token');
-  if (mpAccessToken) {
-    mpHandler = new MercadoPagoHandler(mpAccessToken);
+  try {
+    await initDatabases();
+    await initCuponsDB();
+    await migrateFromJson();
+    MercadoPagoHandler = require(path.join(BASE, 'Handler/mercadopago'));
+    const mpAccessToken = configDB.get('mercadopago.access_token') || configDB.get('mp.access_token');
+    if (mpAccessToken) {
+      mpHandler = new MercadoPagoHandler(mpAccessToken);
+    }
+  } catch (err) {
+    console.error('[Kaeli System] Erro na inicialização (server continuará rodando):', err.message);
   }
   app.listen(PORT, () => {
     console.log(`[Kaeli System] Servidor rodando em http://localhost:${PORT}`);
   });
 }
 
-start().catch(err => {
-  console.error('[Kaeli System] Erro ao iniciar:', err);
-  process.exit(1);
-});
+start();

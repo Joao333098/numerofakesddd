@@ -1,11 +1,7 @@
 #!/bin/bash
+if [ -n "$BOT_TOKEN" ]; then
+  echo "[Start] Iniciando servidor web + Discord listener..."
+  node discord-listener.js &
+fi
 echo "[Start] Iniciando servidor web..."
-node server.js &
-SERVER_PID=$!
-
-echo "[Start] Iniciando Discord listener..."
-node discord-listener.js &
-LISTENER_PID=$!
-
-echo "[Start] Ambos rodando. PID server=$SERVER_PID, listener=$LISTENER_PID"
-wait
+exec node server.js

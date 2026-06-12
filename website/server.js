@@ -1425,16 +1425,21 @@ app.get('/health', (req, res) => res.json({ status: 'ok', uptime: process.uptime
 
 async function start() {
   try {
+    console.log('[Start] Inicializando bancos de dados...');
     await initDatabases();
+    console.log('[Start] Bancos OK');
     await initCuponsDB();
+    console.log('[Start] Cupons OK');
     await migrateFromJson();
+    console.log('[Start] Migração concluída');
     MercadoPagoHandler = require(path.join(BASE, 'Handler/mercadopago'));
     const mpAccessToken = configDB.get('mercadopago.access_token') || configDB.get('mp.access_token');
     if (mpAccessToken) {
       mpHandler = new MercadoPagoHandler(mpAccessToken);
     }
   } catch (err) {
-    console.error('[Kaeli System] Erro na inicialização (server continuará rodando):', err.message);
+    console.error('[Start] ERRO:', err.message);
+    console.error('[Start] Stack:', err.stack);
   }
   app.listen(PORT, () => {
     console.log(`[Kaeli System] Servidor rodando em http://localhost:${PORT}`);

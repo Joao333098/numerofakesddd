@@ -53,8 +53,8 @@ class SMS24H {
                 Object.entries(countryData).forEach(([service, data]) => {
                     services.push({
                         id: service,
-                        price: parseFloat(data.price) || 0,
-                        quantity: parseInt(data.quantity) || 0
+                        price: parseFloat(data.cost) || 0,
+                        quantity: parseInt(data.count) || 0
                     });
                 });
                 

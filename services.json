@@ -1,158 +1,949 @@
 {
   "servicos": [
-    { "id": "ki", "nome": "99app", "qtd_disp": 49675, "preco_base": 0.40, "preco_final": 0.50 },
-    { "id": "anb", "nome": "Abastece-ai", "qtd_disp": 55044, "preco_base": 0.40, "preco_final": 0.50 },
-    { "id": "sa", "nome": "AGIBANK", "qtd_disp": 53818, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "bbi", "nome": "aiqfome", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "uk", "nome": "Airbnb", "qtd_disp": 54799, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "hx", "nome": "AliExpress", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "hw", "nome": "Alipay/Alibaba", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "alp", "nome": "Alpha", "qtd_disp": 55041, "preco_base": 0.90, "preco_final": 1.13 },
-    { "id": "am", "nome": "Amazon", "qtd_disp": 50323, "preco_base": 0.35, "preco_final": 0.44 },
-    { "id": "afi", "nome": "Ame Digital", "qtd_disp": 55044, "preco_base": 0.55, "preco_final": 0.69 },
-    { "id": "pm", "nome": "AOL", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "ml", "nome": "ApostaGanha", "qtd_disp": 55044, "preco_base": 0.30, "preco_final": 0.38 },
-    { "id": "wx", "nome": "apple", "qtd_disp": 55044, "preco_base": 0.10, "preco_final": 0.13 },
-    { "id": "bqr", "nome": "Asaas", "qtd_disp": 55042, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "bbl", "nome": "Autodesk", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "li", "nome": "Baidu", "qtd_disp": 55044, "preco_base": 0.40, "preco_final": 0.50 },
-    { "id": "vc", "nome": "Banqi", "qtd_disp": 54978, "preco_base": 0.30, "preco_final": 0.38 },
-    { "id": "abd", "nome": "BeBoo", "qtd_disp": 55044, "preco_base": 1.00, "preco_final": 1.25 },
-    { "id": "ie", "nome": "bet365", "qtd_disp": 54901, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "aon", "nome": "Binance", "qtd_disp": 55043, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "baj", "nome": "Bipa", "qtd_disp": 55044, "preco_base": 0.60, "preco_final": 0.75 },
-    { "id": "ht", "nome": "Bitso", "qtd_disp": 55030, "preco_base": 0.30, "preco_final": 0.38 },
-    { "id": "ua", "nome": "BlaBlaCar", "qtd_disp": 54973, "preco_base": 0.55, "preco_final": 0.69 },
-    { "id": "ann", "nome": "Bradesco", "qtd_disp": 55044, "preco_base": 0.40, "preco_final": 0.50 },
-    { "id": "sy", "nome": "Brahma", "qtd_disp": 55044, "preco_base": 0.60, "preco_final": 0.75 },
-    { "id": "avy", "nome": "BV", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "aff", "nome": "C6 Bank", "qtd_disp": 36927, "preco_base": 0.55, "preco_final": 0.69 },
-    { "id": "my", "nome": "CAIXA", "qtd_disp": 54832, "preco_base": 1.00, "preco_final": 1.25 },
-    { "id": "pc", "nome": "Casino/bet", "qtd_disp": 55044, "preco_base": 1.00, "preco_final": 1.25 },
-    { "id": "ix", "nome": "Celcoin", "qtd_disp": 55044, "preco_base": 0.35, "preco_final": 0.44 },
-    { "id": "re", "nome": "Coinbase", "qtd_disp": 55009, "preco_base": 1.00, "preco_final": 1.25 },
-    { "id": "om", "nome": "Corona", "qtd_disp": 55044, "preco_base": 0.20, "preco_final": 0.25 },
-    { "id": "ax", "nome": "CrefisaMais", "qtd_disp": 55044, "preco_base": 0.35, "preco_final": 0.44 },
-    { "id": "ccl", "nome": "Cruzeiro", "qtd_disp": 54962, "preco_base": 1.00, "preco_final": 1.25 },
-    { "id": "aje", "nome": "CupidMedia", "qtd_disp": 55044, "preco_base": 0.70, "preco_final": 0.88 },
-    { "id": "ahi", "nome": "Daki", "qtd_disp": 55044, "preco_base": 0.65, "preco_final": 0.81 },
-    { "id": "ds", "nome": "Discord", "qtd_disp": 54577, "preco_base": 0.10, "preco_final": 0.13 },
-    { "id": "xj", "nome": "Dotz", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "eml", "nome": "E-mail", "qtd_disp": 55044, "preco_base": 5.00, "preco_final": 5.75 },
-    { "id": "dh", "nome": "eBay", "qtd_disp": 55044, "preco_base": 0.10, "preco_final": 0.13 },
-    { "id": "arf", "nome": "Enjoei", "qtd_disp": 54931, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "apb", "nome": "eToro", "qtd_disp": 55044, "preco_base": 0.65, "preco_final": 0.81 },
-    { "id": "fb", "nome": "Facebook", "qtd_disp": 52681, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "alc", "nome": "Facily", "qtd_disp": 55044, "preco_base": 0.70, "preco_final": 0.88 },
-    { "id": "asl", "nome": "Familhao", "qtd_disp": 55044, "preco_base": 0.40, "preco_final": 0.50 },
-    { "id": "any", "nome": "FastEarn", "qtd_disp": 55044, "preco_base": 0.60, "preco_final": 0.75 },
-    { "id": "aim", "nome": "Firebase", "qtd_disp": 55044, "preco_base": 0.70, "preco_final": 0.88 },
-    { "id": "arg", "nome": "Gappx", "qtd_disp": 55044, "preco_base": 0.61, "preco_final": 0.76 },
-    { "id": "aiu", "nome": "GetNinjas", "qtd_disp": 55044, "preco_base": 0.65, "preco_final": 0.81 },
-    { "id": "go", "nome": "Google", "qtd_disp": 29540, "preco_base": 1.00, "preco_final": 1.25 },
-    { "id": "ght", "nome": "Google Chat", "qtd_disp": 55040, "preco_base": 1.00, "preco_final": 1.25 },
-    { "id": "gmsg", "nome": "GoogleMsgr", "qtd_disp": 55044, "preco_base": 1.00, "preco_final": 1.25 },
-    { "id": "gf", "nome": "GoogleVoice", "qtd_disp": 55044, "preco_base": 1.00, "preco_final": 1.25 },
-    { "id": "afe", "nome": "GovBr", "qtd_disp": 54848, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "yw", "nome": "Grindr", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "alb", "nome": "Guiche Web", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "ik", "nome": "GuruBets", "qtd_disp": 55044, "preco_base": 0.25, "preco_final": 0.31 },
-    { "id": "iq", "nome": "icq", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "pd", "nome": "IFood", "qtd_disp": 51723, "preco_base": 0.13, "preco_final": 0.16 },
-    { "id": "anx", "nome": "InfinitePay", "qtd_disp": 53804, "preco_base": 0.64, "preco_final": 0.80 },
-    { "id": "ig", "nome": "Instagram", "qtd_disp": 53970, "preco_base": 0.40, "preco_final": 0.50 },
-    { "id": "btn", "nome": "Itau", "qtd_disp": 49232, "preco_base": 0.60, "preco_final": 0.75 },
-    { "id": "ad", "nome": "Iti", "qtd_disp": 55044, "preco_base": 0.40, "preco_final": 0.50 },
-    { "id": "kt", "nome": "KakaoTalk", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "vp", "nome": "Kwai", "qtd_disp": 53335, "preco_base": 0.40, "preco_final": 0.50 },
-    { "id": "fh", "nome": "Lalamove", "qtd_disp": 55044, "preco_base": 0.55, "preco_final": 0.69 },
-    { "id": "me", "nome": "Line msg", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "tn", "nome": "LinkedIN", "qtd_disp": 55022, "preco_base": 0.10, "preco_final": 0.13 },
-    { "id": "beh", "nome": "LUUP", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "afq", "nome": "MagaLu", "qtd_disp": 55043, "preco_base": 0.65, "preco_final": 0.81 },
-    { "id": "fd", "nome": "Mamba", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "bwv", "nome": "Manus", "qtd_disp": 54921, "preco_base": 1.00, "preco_final": 1.25 },
-    { "id": "uy", "nome": "Meliuz", "qtd_disp": 55044, "preco_base": 0.10, "preco_final": 0.13 },
-    { "id": "cq", "nome": "Mercado", "qtd_disp": 46431, "preco_base": 1.30, "preco_final": 1.63 },
-    { "id": "amv", "nome": "MeSeems", "qtd_disp": 55044, "preco_base": 1.00, "preco_final": 1.25 },
-    { "id": "mm", "nome": "Microsoft", "qtd_disp": 54523, "preco_base": 0.30, "preco_final": 0.38 },
-    { "id": "aom", "nome": "Monzo", "qtd_disp": 55044, "preco_base": 0.60, "preco_final": 0.75 },
-    { "id": "bgj", "nome": "MoonPay", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "axm", "nome": "Ñ Me Perturbe", "qtd_disp": 55043, "preco_base": 1.00, "preco_final": 1.25 },
-    { "id": "awg", "nome": "Natura Avon", "qtd_disp": 55044, "preco_base": 1.00, "preco_final": 1.25 },
-    { "id": "nv", "nome": "Naver", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "aex", "nome": "Neon", "qtd_disp": 53680, "preco_base": 0.45, "preco_final": 0.56 },
-    { "id": "nf", "nome": "Netflix", "qtd_disp": 55042, "preco_base": 0.35, "preco_final": 0.44 },
-    { "id": "aey", "nome": "Next", "qtd_disp": 54556, "preco_base": 0.45, "preco_final": 0.56 },
-    { "id": "awh", "nome": "NgCash", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "ew", "nome": "Nike", "qtd_disp": 55044, "preco_base": 0.10, "preco_final": 0.13 },
-    { "id": "aaa", "nome": "Nubank", "qtd_disp": 37914, "preco_base": 1.20, "preco_final": 1.50 },
-    { "id": "ok", "nome": "Ok.ru", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "aor", "nome": "OKX", "qtd_disp": 55044, "preco_base": 0.70, "preco_final": 0.88 },
-    { "id": "sn", "nome": "Olx", "qtd_disp": 53856, "preco_base": 0.40, "preco_final": 0.50 },
-    { "id": "auz", "nome": "Outlier", "qtd_disp": 55044, "preco_base": 0.80, "preco_final": 1.00 },
-    { "id": "ot", "nome": "outros", "qtd_disp": 26315, "preco_base": 0.70, "preco_final": 0.88 },
-    { "id": "abg", "nome": "PagBank", "qtd_disp": 54342, "preco_base": 0.40, "preco_final": 0.50 },
-    { "id": "abf", "nome": "Parimatch", "qtd_disp": 55044, "preco_base": 0.64, "preco_final": 0.80 },
-    { "id": "ts", "nome": "paypal", "qtd_disp": 54930, "preco_base": 0.30, "preco_final": 0.38 },
-    { "id": "aol", "nome": "Paysera", "qtd_disp": 55044, "preco_base": 0.80, "preco_final": 1.00 },
-    { "id": "bqh", "nome": "Pedir Gás", "qtd_disp": 55044, "preco_base": 0.60, "preco_final": 0.75 },
-    { "id": "fx", "nome": "PGbonus", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "pf", "nome": "pof.com", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "anw", "nome": "Premmia", "qtd_disp": 55041, "preco_base": 0.65, "preco_final": 0.81 },
-    { "id": "afs", "nome": "Privalia", "qtd_disp": 55007, "preco_base": 0.61, "preco_final": 0.76 },
-    { "id": "dp", "nome": "ProtonMail", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "bxj", "nome": "Quero-Q PAG", "qtd_disp": 55044, "preco_base": 1.00, "preco_final": 1.25 },
-    { "id": "ayk", "nome": "Radquest", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "aba", "nome": "Rappi", "qtd_disp": 55006, "preco_base": 1.00, "preco_final": 1.25 },
-    { "id": "aoz", "nome": "ReclameAQUI", "qtd_disp": 54898, "preco_base": 0.63, "preco_final": 0.79 },
-    { "id": "ij", "nome": "Revolut", "qtd_disp": 55044, "preco_base": 0.80, "preco_final": 1.00 },
-    { "id": "avp", "nome": "Ripio", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "lj", "nome": "Santander", "qtd_disp": 52171, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "abj", "nome": "Serasa", "qtd_disp": 55041, "preco_base": 0.55, "preco_final": 0.69 },
-    { "id": "aez", "nome": "Shein", "qtd_disp": 55038, "preco_base": 1.00, "preco_final": 1.25 },
-    { "id": "vg", "nome": "ShellBox", "qtd_disp": 55005, "preco_base": 0.30, "preco_final": 0.38 },
-    { "id": "ka", "nome": "Shopee", "qtd_disp": 54008, "preco_base": 0.65, "preco_final": 0.81 },
-    { "id": "ana", "nome": "sicredi", "qtd_disp": 54961, "preco_base": 1.00, "preco_final": 1.25 },
-    { "id": "aqt", "nome": "Skrill", "qtd_disp": 55034, "preco_base": 0.70, "preco_final": 0.88 },
-    { "id": "fu", "nome": "Snapchat", "qtd_disp": 55044, "preco_base": 0.40, "preco_final": 0.50 },
-    { "id": "bxz", "nome": "SOOP", "qtd_disp": 55044, "preco_base": 1.00, "preco_final": 1.25 },
-    { "id": "ky", "nome": "Spaten", "qtd_disp": 55030, "preco_base": 0.35, "preco_final": 0.44 },
-    { "id": "mt", "nome": "Steam", "qtd_disp": 55043, "preco_base": 0.10, "preco_final": 0.13 },
-    { "id": "tg", "nome": "Telegram", "qtd_disp": 51460, "preco_base": 6.00, "preco_final": 6.90 },
-    { "id": "ep", "nome": "Temu", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "qq", "nome": "Tencent QQ", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "rb", "nome": "Tick", "qtd_disp": 55044, "preco_base": 0.35, "preco_final": 0.44 },
-    { "id": "gp", "nome": "Ticketmaster", "qtd_disp": 55044, "preco_base": 1.00, "preco_final": 1.25 },
-    { "id": "lf", "nome": "TikTok/Douyin", "qtd_disp": 54754, "preco_base": 0.90, "preco_final": 1.13 },
-    { "id": "oi", "nome": "Tinder", "qtd_disp": 53413, "preco_base": 0.67, "preco_final": 0.84 },
-    { "id": "auc", "nome": "TotalPass", "qtd_disp": 55021, "preco_base": 0.30, "preco_final": 0.38 },
-    { "id": "tw", "nome": "Twitter", "qtd_disp": 55044, "preco_base": 0.10, "preco_final": 0.13 },
-    { "id": "ub", "nome": "Uber", "qtd_disp": 52418, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "ahb", "nome": "Ubisoft", "qtd_disp": 55044, "preco_base": 1.00, "preco_final": 1.25 },
-    { "id": "afr", "nome": "Ultragaz", "qtd_disp": 53249, "preco_base": 0.64, "preco_final": 0.80 },
-    { "id": "abh", "nome": "Uol", "qtd_disp": 55029, "preco_base": 0.54, "preco_final": 0.68 },
-    { "id": "bdw", "nome": "Valora", "qtd_disp": 55044, "preco_base": 0.70, "preco_final": 0.88 },
-    { "id": "vi", "nome": "Viber", "qtd_disp": 53863, "preco_base": 0.10, "preco_final": 0.13 },
-    { "id": "vk", "nome": "vk.com", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "eb", "nome": "Voltz", "qtd_disp": 55044, "preco_base": 0.30, "preco_final": 0.38 },
-    { "id": "wr", "nome": "Walmart", "qtd_disp": 55044, "preco_base": 0.70, "preco_final": 0.88 },
-    { "id": "bfa", "nome": "Webmotors", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "wb", "nome": "WeChat", "qtd_disp": 53298, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "th", "nome": "WestStein", "qtd_disp": 55044, "preco_base": 0.70, "preco_final": 0.88 },
-    { "id": "wa", "nome": "WhatsApp", "qtd_disp": 50512, "preco_base": 8.00, "preco_final": 9.20 },
-    { "id": "bsa", "nome": "Will", "qtd_disp": 55041, "preco_base": 0.65, "preco_final": 0.81 },
-    { "id": "vs", "nome": "Winzo", "qtd_disp": 55043, "preco_base": 0.65, "preco_final": 0.81 },
-    { "id": "baa", "nome": "Wirex", "qtd_disp": 55044, "preco_base": 0.70, "preco_final": 0.88 },
-    { "id": "bo", "nome": "Wise", "qtd_disp": 55034, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "aml", "nome": "Xbox", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "yu", "nome": "Xiaomi", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "mb", "nome": "Yahoo", "qtd_disp": 55044, "preco_base": 0.12, "preco_final": 0.15 },
-    { "id": "yl", "nome": "Yalla", "qtd_disp": 55025, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "ya", "nome": "Yandex", "qtd_disp": 55044, "preco_base": 0.20, "preco_final": 0.25 },
-    { "id": "sm", "nome": "YoWin", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 },
-    { "id": "em", "nome": "ZéDelivery", "qtd_disp": 54963, "preco_base": 0.25, "preco_final": 0.31 },
-    { "id": "btm", "nome": "ZeeNow", "qtd_disp": 55043, "preco_base": 0.60, "preco_final": 0.75 },
-    { "id": "zh", "nome": "Zoho", "qtd_disp": 55044, "preco_base": 0.50, "preco_final": 0.63 }
+    {
+      "id": "ot",
+      "nome": "📌 Seu serviço não está aqui? Compre outros!",
+      "qtd_disp": 19,
+      "preco_base": 1,
+      "preco_final": 1.13
+    },
+    {
+      "id": "ki",
+      "nome": "99app",
+      "qtd_disp": 351580,
+      "preco_base": 0.8,
+      "preco_final": 0.9
+    },
+    {
+      "id": "sa",
+      "nome": "AGIBANK",
+      "qtd_disp": 373451,
+      "preco_base": 0.7,
+      "preco_final": 0.79
+    },
+    {
+      "id": "hx",
+      "nome": "AliExpress",
+      "qtd_disp": 420000,
+      "preco_base": 0.8,
+      "preco_final": 0.9
+    },
+    {
+      "id": "am",
+      "nome": "Amazon",
+      "qtd_disp": 82,
+      "preco_base": 0.7,
+      "preco_final": 0.79
+    },
+    {
+      "id": "bqr",
+      "nome": "Asaas",
+      "qtd_disp": 419944,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "bbl",
+      "nome": "Autodesk",
+      "qtd_disp": 420011,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "li",
+      "nome": "Baidu",
+      "qtd_disp": 419892,
+      "preco_base": 0.4,
+      "preco_final": 0.45
+    },
+    {
+      "id": "vc",
+      "nome": "Banqi",
+      "qtd_disp": 418054,
+      "preco_base": 0.3,
+      "preco_final": 0.34
+    },
+    {
+      "id": "abd",
+      "nome": "BeBoo",
+      "qtd_disp": 420011,
+      "preco_base": 1,
+      "preco_final": 1.13
+    },
+    {
+      "id": "ie",
+      "nome": "bet365",
+      "qtd_disp": 413545,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "baj",
+      "nome": "Bipa",
+      "qtd_disp": 420008,
+      "preco_base": 0.6,
+      "preco_final": 0.68
+    },
+    {
+      "id": "ht",
+      "nome": "Bitso",
+      "qtd_disp": 419954,
+      "preco_base": 0.3,
+      "preco_final": 0.34
+    },
+    {
+      "id": "ua",
+      "nome": "BlaBlaCar",
+      "qtd_disp": 418376,
+      "preco_base": 0.55,
+      "preco_final": 0.62
+    },
+    {
+      "id": "ann",
+      "nome": "Bradesco",
+      "qtd_disp": 419948,
+      "preco_base": 0.4,
+      "preco_final": 0.45
+    },
+    {
+      "id": "sy",
+      "nome": "Brahma",
+      "qtd_disp": 420011,
+      "preco_base": 0.6,
+      "preco_final": 0.68
+    },
+    {
+      "id": "avy",
+      "nome": "BV",
+      "qtd_disp": 417875,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "aff",
+      "nome": "C6 Bank",
+      "qtd_disp": 328295,
+      "preco_base": 0.8,
+      "preco_final": 0.9
+    },
+    {
+      "id": "ccu",
+      "nome": "Ccu",
+      "qtd_disp": 413116,
+      "preco_base": 1,
+      "preco_final": 1.13
+    },
+    {
+      "id": "re",
+      "nome": "Coinbase",
+      "qtd_disp": 419664,
+      "preco_base": 1,
+      "preco_final": 1.13
+    },
+    {
+      "id": "om",
+      "nome": "Corona",
+      "qtd_disp": 420011,
+      "preco_base": 0.2,
+      "preco_final": 0.23
+    },
+    {
+      "id": "ax",
+      "nome": "CrefisaMais",
+      "qtd_disp": 420008,
+      "preco_base": 0.35,
+      "preco_final": 0.4
+    },
+    {
+      "id": "ccl",
+      "nome": "Cruzeiro",
+      "qtd_disp": 419206,
+      "preco_base": 1,
+      "preco_final": 1.13
+    },
+    {
+      "id": "aje",
+      "nome": "CupidMedia",
+      "qtd_disp": 420011,
+      "preco_base": 0.7,
+      "preco_final": 0.79
+    },
+    {
+      "id": "ahi",
+      "nome": "Daki",
+      "qtd_disp": 420011,
+      "preco_base": 0.65,
+      "preco_final": 0.73
+    },
+    {
+      "id": "xj",
+      "nome": "Dotz",
+      "qtd_disp": 420011,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "dr",
+      "nome": "Dr",
+      "qtd_disp": 419941,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "efi",
+      "nome": "Efi",
+      "qtd_disp": 419846,
+      "preco_base": 1,
+      "preco_final": 1.13
+    },
+    {
+      "id": "arf",
+      "nome": "Enjoei",
+      "qtd_disp": 418849,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "apb",
+      "nome": "eToro",
+      "qtd_disp": 420011,
+      "preco_base": 0.65,
+      "preco_final": 0.73
+    },
+    {
+      "id": "ev",
+      "nome": "Ev",
+      "qtd_disp": 216913,
+      "preco_base": 1,
+      "preco_final": 1.13
+    },
+    {
+      "id": "fb",
+      "nome": "Facebook",
+      "qtd_disp": 316501,
+      "preco_base": 0.8,
+      "preco_final": 0.9
+    },
+    {
+      "id": "alc",
+      "nome": "Facily",
+      "qtd_disp": 420011,
+      "preco_base": 0.7,
+      "preco_final": 0.79
+    },
+    {
+      "id": "asl",
+      "nome": "Familhao",
+      "qtd_disp": 420011,
+      "preco_base": 0.4,
+      "preco_final": 0.45
+    },
+    {
+      "id": "any",
+      "nome": "FastEarn",
+      "qtd_disp": 420011,
+      "preco_base": 0.6,
+      "preco_final": 0.68
+    },
+    {
+      "id": "aim",
+      "nome": "Firebase",
+      "qtd_disp": 420011,
+      "preco_base": 0.7,
+      "preco_final": 0.79
+    },
+    {
+      "id": "arg",
+      "nome": "Gappx",
+      "qtd_disp": 420011,
+      "preco_base": 0.61,
+      "preco_final": 0.69
+    },
+    {
+      "id": "aiu",
+      "nome": "GetNinjas",
+      "qtd_disp": 420011,
+      "preco_base": 0.65,
+      "preco_final": 0.73
+    },
+    {
+      "id": "go",
+      "nome": "Google",
+      "qtd_disp": 17345,
+      "preco_base": 1,
+      "preco_final": 1.13
+    },
+    {
+      "id": "gmsg",
+      "nome": "GoogleMsgr",
+      "qtd_disp": 420011,
+      "preco_base": 1,
+      "preco_final": 1.13
+    },
+    {
+      "id": "gf",
+      "nome": "GoogleVoice",
+      "qtd_disp": 420001,
+      "preco_base": 1,
+      "preco_final": 1.13
+    },
+    {
+      "id": "afe",
+      "nome": "GovBr",
+      "qtd_disp": 419466,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "yw",
+      "nome": "Grindr",
+      "qtd_disp": 420004,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "alb",
+      "nome": "Guiche Web",
+      "qtd_disp": 420011,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "ik",
+      "nome": "GuruBets",
+      "qtd_disp": 420011,
+      "preco_base": 0.25,
+      "preco_final": 0.28
+    },
+    {
+      "id": "hb",
+      "nome": "Hb",
+      "qtd_disp": 420010,
+      "preco_base": 0.4,
+      "preco_final": 0.45
+    },
+    {
+      "id": "iq",
+      "nome": "icq",
+      "qtd_disp": 420011,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "pd",
+      "nome": "IFood",
+      "qtd_disp": 378735,
+      "preco_base": 0.65,
+      "preco_final": 0.73
+    },
+    {
+      "id": "anx",
+      "nome": "InfinitePay",
+      "qtd_disp": 399859,
+      "preco_base": 0.64,
+      "preco_final": 0.72
+    },
+    {
+      "id": "ig",
+      "nome": "Instagram",
+      "qtd_disp": 387154,
+      "preco_base": 0.64,
+      "preco_final": 0.72
+    },
+    {
+      "id": "btn",
+      "nome": "Itau",
+      "qtd_disp": 248184,
+      "preco_base": 0.6,
+      "preco_final": 0.68
+    },
+    {
+      "id": "ad",
+      "nome": "Iti",
+      "qtd_disp": 419880,
+      "preco_base": 0.4,
+      "preco_final": 0.45
+    },
+    {
+      "id": "kt",
+      "nome": "KakaoTalk",
+      "qtd_disp": 415530,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "vp",
+      "nome": "Kwai",
+      "qtd_disp": 410009,
+      "preco_base": 0.55,
+      "preco_final": 0.62
+    },
+    {
+      "id": "fh",
+      "nome": "Lalamove",
+      "qtd_disp": 420007,
+      "preco_base": 0.55,
+      "preco_final": 0.62
+    },
+    {
+      "id": "me",
+      "nome": "Line msg",
+      "qtd_disp": 419963,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "beh",
+      "nome": "LUUP",
+      "qtd_disp": 420011,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "afq",
+      "nome": "MagaLu",
+      "qtd_disp": 419992,
+      "preco_base": 0.65,
+      "preco_final": 0.73
+    },
+    {
+      "id": "fd",
+      "nome": "Mamba",
+      "qtd_disp": 420011,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "bwv",
+      "nome": "Manus",
+      "qtd_disp": 419069,
+      "preco_base": 1,
+      "preco_final": 1.13
+    },
+    {
+      "id": "uy",
+      "nome": "Meliuz",
+      "qtd_disp": 420010,
+      "preco_base": 0.1,
+      "preco_final": 0.11
+    },
+    {
+      "id": "cq",
+      "nome": "Mercado",
+      "qtd_disp": 2939,
+      "preco_base": 1.3,
+      "preco_final": 1.47
+    },
+    {
+      "id": "amv",
+      "nome": "MeSeems",
+      "qtd_disp": 420011,
+      "preco_base": 1,
+      "preco_final": 1.13
+    },
+    {
+      "id": "aom",
+      "nome": "Monzo",
+      "qtd_disp": 420011,
+      "preco_base": 0.6,
+      "preco_final": 0.68
+    },
+    {
+      "id": "bgj",
+      "nome": "MoonPay",
+      "qtd_disp": 420008,
+      "preco_base": 1,
+      "preco_final": 1.13
+    },
+    {
+      "id": "axm",
+      "nome": "Ñ Me Perturbe",
+      "qtd_disp": 419979,
+      "preco_base": 1,
+      "preco_final": 1.13
+    },
+    {
+      "id": "awg",
+      "nome": "Natura Avon",
+      "qtd_disp": 420011,
+      "preco_base": 1,
+      "preco_final": 1.13
+    },
+    {
+      "id": "nv",
+      "nome": "Naver",
+      "qtd_disp": 419881,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "aex",
+      "nome": "Neon",
+      "qtd_disp": 413856,
+      "preco_base": 0.45,
+      "preco_final": 0.51
+    },
+    {
+      "id": "aey",
+      "nome": "Next",
+      "qtd_disp": 366737,
+      "preco_base": 0.45,
+      "preco_final": 0.51
+    },
+    {
+      "id": "awh",
+      "nome": "NgCash",
+      "qtd_disp": 420011,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "aaa",
+      "nome": "Nubank",
+      "qtd_disp": 186161,
+      "preco_base": 1.2,
+      "preco_final": 1.36
+    },
+    {
+      "id": "ok",
+      "nome": "Ok.ru",
+      "qtd_disp": 420011,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "aor",
+      "nome": "OKX",
+      "qtd_disp": 420010,
+      "preco_base": 0.7,
+      "preco_final": 0.79
+    },
+    {
+      "id": "sn",
+      "nome": "Olx",
+      "qtd_disp": 406146,
+      "preco_base": 0.7,
+      "preco_final": 0.79
+    },
+    {
+      "id": "auz",
+      "nome": "Outlier",
+      "qtd_disp": 420011,
+      "preco_base": 0.8,
+      "preco_final": 0.9
+    },
+    {
+      "id": "abg",
+      "nome": "PagBank",
+      "qtd_disp": 388181,
+      "preco_base": 0.4,
+      "preco_final": 0.45
+    },
+    {
+      "id": "abf",
+      "nome": "Parimatch",
+      "qtd_disp": 420011,
+      "preco_base": 0.64,
+      "preco_final": 0.72
+    },
+    {
+      "id": "aol",
+      "nome": "Paysera",
+      "qtd_disp": 420011,
+      "preco_base": 0.8,
+      "preco_final": 0.9
+    },
+    {
+      "id": "bqh",
+      "nome": "Pedir Gás",
+      "qtd_disp": 420011,
+      "preco_base": 0.6,
+      "preco_final": 0.68
+    },
+    {
+      "id": "fx",
+      "nome": "PGbonus",
+      "qtd_disp": 420011,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "pf",
+      "nome": "pof.com",
+      "qtd_disp": 420009,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "anw",
+      "nome": "Premmia",
+      "qtd_disp": 419821,
+      "preco_base": 0.65,
+      "preco_final": 0.73
+    },
+    {
+      "id": "afs",
+      "nome": "Privalia",
+      "qtd_disp": 419988,
+      "preco_base": 0.61,
+      "preco_final": 0.69
+    },
+    {
+      "id": "dp",
+      "nome": "ProtonMail",
+      "qtd_disp": 419872,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "bxj",
+      "nome": "Quero-Q PAG",
+      "qtd_disp": 420011,
+      "preco_base": 1,
+      "preco_final": 1.13
+    },
+    {
+      "id": "ayk",
+      "nome": "Radquest",
+      "qtd_disp": 420011,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "aba",
+      "nome": "Rappi",
+      "qtd_disp": 419442,
+      "preco_base": 1,
+      "preco_final": 1.13
+    },
+    {
+      "id": "aoz",
+      "nome": "ReclameAQUI",
+      "qtd_disp": 414661,
+      "preco_base": 0.63,
+      "preco_final": 0.71
+    },
+    {
+      "id": "ij",
+      "nome": "Revolut",
+      "qtd_disp": 419994,
+      "preco_base": 0.8,
+      "preco_final": 0.9
+    },
+    {
+      "id": "avp",
+      "nome": "Ripio",
+      "qtd_disp": 420011,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "lj",
+      "nome": "Santander",
+      "qtd_disp": 322096,
+      "preco_base": 0.7,
+      "preco_final": 0.79
+    },
+    {
+      "id": "abj",
+      "nome": "Serasa",
+      "qtd_disp": 419997,
+      "preco_base": 0.55,
+      "preco_final": 0.62
+    },
+    {
+      "id": "aez",
+      "nome": "Shein",
+      "qtd_disp": 419386,
+      "preco_base": 1,
+      "preco_final": 1.13
+    },
+    {
+      "id": "vg",
+      "nome": "ShellBox",
+      "qtd_disp": 417827,
+      "preco_base": 0.3,
+      "preco_final": 0.34
+    },
+    {
+      "id": "ka",
+      "nome": "Shopee",
+      "qtd_disp": 402364,
+      "preco_base": 0.8,
+      "preco_final": 0.9
+    },
+    {
+      "id": "ana",
+      "nome": "sicredi",
+      "qtd_disp": 417124,
+      "preco_base": 1,
+      "preco_final": 1.13
+    },
+    {
+      "id": "aqt",
+      "nome": "Skrill",
+      "qtd_disp": 419986,
+      "preco_base": 0.7,
+      "preco_final": 0.79
+    },
+    {
+      "id": "fu",
+      "nome": "Snapchat",
+      "qtd_disp": 419845,
+      "preco_base": 0.4,
+      "preco_final": 0.45
+    },
+    {
+      "id": "bxz",
+      "nome": "SOOP",
+      "qtd_disp": 420011,
+      "preco_base": 1,
+      "preco_final": 1.13
+    },
+    {
+      "id": "ky",
+      "nome": "Spaten",
+      "qtd_disp": 420007,
+      "preco_base": 0.35,
+      "preco_final": 0.4
+    },
+    {
+      "id": "tg",
+      "nome": "Telegram",
+      "qtd_disp": 388208,
+      "preco_base": 4,
+      "preco_final": 4.52
+    },
+    {
+      "id": "ep",
+      "nome": "Temu",
+      "qtd_disp": 419814,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "qq",
+      "nome": "Tencent QQ",
+      "qtd_disp": 394955,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "rb",
+      "nome": "Tick",
+      "qtd_disp": 420011,
+      "preco_base": 0.35,
+      "preco_final": 0.4
+    },
+    {
+      "id": "gp",
+      "nome": "Ticketmaster",
+      "qtd_disp": 178275,
+      "preco_base": 1,
+      "preco_final": 1.13
+    },
+    {
+      "id": "lf",
+      "nome": "TikTok/Douyin",
+      "qtd_disp": 354476,
+      "preco_base": 0.6,
+      "preco_final": 0.68
+    },
+    {
+      "id": "oi",
+      "nome": "Tinder",
+      "qtd_disp": 397403,
+      "preco_base": 0.67,
+      "preco_final": 0.76
+    },
+    {
+      "id": "auc",
+      "nome": "TotalPass",
+      "qtd_disp": 414379,
+      "preco_base": 0.3,
+      "preco_final": 0.34
+    },
+    {
+      "id": "ub",
+      "nome": "Uber",
+      "qtd_disp": 370984,
+      "preco_base": 0.8,
+      "preco_final": 0.9
+    },
+    {
+      "id": "ahb",
+      "nome": "Ubisoft",
+      "qtd_disp": 419996,
+      "preco_base": 1,
+      "preco_final": 1.13
+    },
+    {
+      "id": "afr",
+      "nome": "Ultragaz",
+      "qtd_disp": 393499,
+      "preco_base": 0.64,
+      "preco_final": 0.72
+    },
+    {
+      "id": "abh",
+      "nome": "Uol",
+      "qtd_disp": 419551,
+      "preco_base": 0.54,
+      "preco_final": 0.61
+    },
+    {
+      "id": "bdw",
+      "nome": "Valora",
+      "qtd_disp": 420011,
+      "preco_base": 0.7,
+      "preco_final": 0.79
+    },
+    {
+      "id": "vi",
+      "nome": "Viber",
+      "qtd_disp": 201846,
+      "preco_base": 0.1,
+      "preco_final": 0.11
+    },
+    {
+      "id": "vk",
+      "nome": "vk.com",
+      "qtd_disp": 420011,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "eb",
+      "nome": "Voltz",
+      "qtd_disp": 420011,
+      "preco_base": 0.3,
+      "preco_final": 0.34
+    },
+    {
+      "id": "wr",
+      "nome": "Walmart",
+      "qtd_disp": 420011,
+      "preco_base": 0.7,
+      "preco_final": 0.79
+    },
+    {
+      "id": "bfa",
+      "nome": "Webmotors",
+      "qtd_disp": 420011,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "wb",
+      "nome": "WeChat",
+      "qtd_disp": 49190,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "th",
+      "nome": "WestStein",
+      "qtd_disp": 420011,
+      "preco_base": 0.7,
+      "preco_final": 0.79
+    },
+    {
+      "id": "wa",
+      "nome": "WhatsApp",
+      "qtd_disp": 314141,
+      "preco_base": 8,
+      "preco_final": 9.04
+    },
+    {
+      "id": "bsa",
+      "nome": "Will",
+      "qtd_disp": 420011,
+      "preco_base": 0.65,
+      "preco_final": 0.73
+    },
+    {
+      "id": "vs",
+      "nome": "Winzo",
+      "qtd_disp": 420011,
+      "preco_base": 0.65,
+      "preco_final": 0.73
+    },
+    {
+      "id": "baa",
+      "nome": "Wirex",
+      "qtd_disp": 420011,
+      "preco_base": 0.7,
+      "preco_final": 0.79
+    },
+    {
+      "id": "bo",
+      "nome": "Wise",
+      "qtd_disp": 419931,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "aml",
+      "nome": "Xbox",
+      "qtd_disp": 420011,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "yu",
+      "nome": "Xiaomi",
+      "qtd_disp": 420011,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "mb",
+      "nome": "Yahoo",
+      "qtd_disp": 392836,
+      "preco_base": 0.12,
+      "preco_final": 0.14
+    },
+    {
+      "id": "yl",
+      "nome": "Yalla",
+      "qtd_disp": 419076,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "ya",
+      "nome": "Yandex",
+      "qtd_disp": 420011,
+      "preco_base": 0.2,
+      "preco_final": 0.23
+    },
+    {
+      "id": "sm",
+      "nome": "YoWin",
+      "qtd_disp": 420011,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    },
+    {
+      "id": "em",
+      "nome": "ZéDelivery",
+      "qtd_disp": 417770,
+      "preco_base": 0.25,
+      "preco_final": 0.28
+    },
+    {
+      "id": "btm",
+      "nome": "ZeeNow",
+      "qtd_disp": 419997,
+      "preco_base": 0.6,
+      "preco_final": 0.68
+    },
+    {
+      "id": "zh",
+      "nome": "Zoho",
+      "qtd_disp": 419889,
+      "preco_base": 0.5,
+      "preco_final": 0.56
+    }
   ]
 }

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra Rápida - Kaeli System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>@</text></svg>">
+</head>
+<body>
+    <canvas id="particles-canvas"></canvas>
+
+    <nav class="navbar">
+        <a href="/" class="logo"><i class="fas fa-bolt"></i> KAELI<span>SYSTEM</span></a>
+        <button class="hamburger"><span></span><span></span><span></span></button>
+        <ul class="nav-links">
+            <li><a href="/"><i class="fas fa-home"></i> Início</a></li>
+            <li><a href="/guest"><i class="fas fa-bolt"></i> Compra Rápida</a></li>
+            <li><a href="/login"><i class="fas fa-sign-in-alt"></i> Entrar</a></li>
+            <li><a href="/cadastro" class="nav-btn nav-btn-primary"><i class="fas fa-user-plus"></i> Cadastrar</a></li>
+        </ul>
+    </nav>
+
+    <div class="dashboard" id="guestApp">
+        <div class="dashboard-header">
+            <div class="dashboard-welcome">
+                <h1><i class="fas fa-bolt"></i> Compra <span class="highlight">Rápida</span></h1>
+                <p>Escolha um serviço, pague via PIX e receba o código SMS</p>
+            </div>
+        </div>
+
+        <div id="stepSelect" class="section-card">
+            <h2><i class="fas fa-search"></i> Escolha o Serviço</h2>
+            <div class="form-group">
+                <div class="input-wrapper">
+                    <span class="input-icon"><i class="fas fa-search"></i></span>
+                    <input type="text" id="serviceSearch" placeholder="Buscar serviço..." oninput="filterServices()">
+                </div>
+            </div>
+            <div class="table-responsive" id="servicesList">
+                <div class="spinner"></div>
+            </div>
+        </div>
+
+        <div id="stepConfirm" class="section-card" style="display:none;">
+            <h2><i class="fas fa-clipboard-check"></i> Confirmar Compra</h2>
+            <div class="confirm-card" id="confirmContent">
+                <div class="confirm-header">
+                    <div class="confirm-icon" id="confirmIcon"><i class="fas fa-sim-card"></i></div>
+                    <div class="confirm-info">
+                        <div class="confirm-name" id="confirmName">-</div>
+                        <div class="confirm-id" id="confirmId">-</div>
+                    </div>
+                </div>
+                <div class="confirm-price">
+                    <span class="confirm-label">Valor</span>
+                    <span class="confirm-value" id="confirmPrice">R$ 0,00</span>
+                </div>
+            </div>
+            <div class="confirm-actions">
+                <button class="btn btn-outline btn-sm" onclick="cancelCheckout()" style="flex:1;justify-content:center;">
+                    <i class="fas fa-times"></i> Cancelar
+                </button>
+                <button class="btn btn-primary btn-sm" onclick="confirmCheckout()" style="flex:1;justify-content:center;">
+                    <i class="fas fa-check"></i> Confirmar
+                </button>
+                <button class="btn btn-test btn-sm" onclick="testCheckout()" style="flex:1;justify-content:center;">
+                    <i class="fas fa-flask"></i> Testar
+                </button>
+            </div>
+        </div>
+
+        <div id="stepPayment" class="section-card" style="display:none;">
+            <h2><i class="fas fa-qrcode"></i> Pagamento via PIX</h2>
+            <button class="btn btn-outline btn-sm" onclick="backToConfirm()" style="margin-bottom:16px;justify-content:center;">
+                <i class="fas fa-arrow-left"></i> Voltar
+            </button>
+            <div class="info-card" style="border:1px solid rgba(255,26,26,0.2);border-radius:14px;padding:20px;margin-bottom:20px;">
+                <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+                    <div>
+                        <div style="font-size:0.82rem;color:var(--gray);">Serviço</div>
+                        <div style="font-size:1.2rem;font-weight:700;" id="paymentServiceName">-</div>
+                    </div>
+                    <div style="text-align:right;">
+                        <div style="font-size:0.82rem;color:var(--gray);">Valor</div>
+                        <div style="font-size:1.5rem;font-family:'Otomanopee One',sans-serif;color:var(--gold);" id="paymentValue">R$ 0,00</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="pixContainer" class="pix-container">
+                <div id="pixQRCode"></div>
+                <div class="pix-value" id="pixValueDisplay"></div>
+                <div class="pix-code" id="pixCodeDisplay"></div>
+                <button class="btn btn-primary btn-sm" onclick="copyPixCode()" style="width:100%;justify-content:center;">
+                    <i class="fas fa-copy"></i> Copiar Código PIX
+                </button>
+                <div class="pix-status pending" id="pixPaymentStatus">
+                    <i class="fas fa-clock"></i> Aguardando pagamento...
+                </div>
+            </div>
+        </div>
+
+        <div id="stepCode" class="section-card" style="display:none;">
+            <h2><i class="fas fa-check-circle" style="color:#00c853;"></i> Pagamento Confirmado!</h2>
+            <div class="info-card" style="border:1px solid rgba(0,200,83,0.2);border-radius:14px;padding:28px;text-align:center;margin-bottom:20px;">
+                <div style="font-size:0.85rem;color:var(--gray);margin-bottom:8px;">Seu código de entrega:</div>
+                <div id="codigoDisplay" style="font-size:2.4rem;font-family:'Otomanopee One',sans-serif;color:var(--gold);letter-spacing:6px;background:rgba(255,255,255,0.03);padding:16px;border-radius:12px;border:1px solid rgba(255,215,0,0.2);margin-bottom:16px;user-select:all;">------</div>
+                <button class="btn btn-primary btn-sm" onclick="copyCode()" style="justify-content:center;width:auto;margin:0 auto;">
+                    <i class="fas fa-copy"></i> Copiar Código
+                </button>
+                <div id="testResult" style="display:none;margin-top:16px;padding:16px;background:rgba(0,200,83,0.06);border-radius:10px;border:1px solid rgba(0,200,83,0.15);">
+                    <div style="font-size:0.82rem;color:var(--gray);margin-bottom:6px;">Número ativado:</div>
+                    <div id="testNumber" style="font-size:1.2rem;font-weight:700;color:#00c853;"></div>
+                </div>
+            </div>
+
+            <div class="info-card" style="border:1px solid rgba(255,26,26,0.15);border-radius:14px;padding:24px;">
+                <h3 style="font-size:1rem;margin-bottom:12px;"><i class="fas fa-info-circle" style="color:var(--red-light);"></i> Próximos Passos</h3>
+                <div style="display:flex;flex-direction:column;gap:12px;">
+                    <div style="display:flex;gap:12px;align-items:flex-start;">
+                        <div style="background:var(--red);width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;">1</div>
+                        <div style="font-size:0.9rem;color:var(--gray);">Entre no nosso servidor do Discord clicando <a href="https://discord.gg/XaE9dvNj" target="_blank" style="color:var(--red-light);font-weight:700;">aqui</a></div>
+                    </div>
+                    <div style="display:flex;gap:12px;align-items:flex-start;">
+                        <div style="background:var(--red);width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;">2</div>
+                        <div style="font-size:0.9rem;color:var(--gray);">Cole o código acima em <strong>qualquer chat</strong> do servidor</div>
+                    </div>
+                    <div style="display:flex;gap:12px;align-items:flex-start;">
+                        <div style="background:var(--red);width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;">3</div>
+                        <div style="font-size:0.9rem;color:var(--gray);">O bot irá reconhecer, apagar a mensagem e enviar o número + SMS no seu privado</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top:20px;text-align:center;">
+                <a href="/guest" class="btn btn-outline btn-sm"><i class="fas fa-redo"></i> Nova Compra</a>
+            </div>
+        </div>
+
+        <div id="loadingOverlay" style="display:none;text-align:center;padding:60px 20px;">
+            <div class="spinner"></div>
+            <p style="color:var(--gray);margin-top:16px;" id="loadingText">Processando...</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 <a href="/">Kaeli System</a> - Todos os direitos reservados <i class="fas fa-bolt"></i></p>
+    </footer>
+
+    <script src="/js/script.js"></script>
+    <script>
+        let selectedService = null;
+        let currentGuestKey = null;
+        let currentPaymentId = null;
+        let paymentInterval = null;
+        let allServices = [];
+
+        async function loadGuestServices() {
+            try {
+                const data = await fetchAPI('/api/services/public?limit=200');
+                allServices = data.services || [];
+                renderServices(allServices);
+            } catch (err) {
+                document.getElementById('servicesList').innerHTML = '<div class="empty-state"><div class="icon"><i class="fas fa-exclamation-triangle"></i></div><p>Erro ao carregar serviços</p></div>';
+            }
+        }
+
+        function getServiceIcon(name) {
+            const map = {
+                '99app': { set: 'fas', icon: 'taxi' },
+                'abastece-ai': { set: 'fas', icon: 'gas-pump' },
+                'agibank': { set: 'fas', icon: 'university' },
+                'aiqfome': { set: 'fas', icon: 'utensils' },
+                'airbnb': { set: 'fab', icon: 'airbnb' },
+                'aliexpress': { set: 'fas', icon: 'shopping-bag' },
+                'alipay/alibaba': { set: 'fab', icon: 'alipay' },
+                'alpha': { set: 'fas', icon: 'university' },
+                'amazon': { set: 'fab', icon: 'amazon' },
+                'ame digital': { set: 'fas', icon: 'coins' },
+                'aol': { set: 'fab', icon: 'aol' },
+                'apostaganha': { set: 'fas', icon: 'dice' },
+                'apple': { set: 'fab', icon: 'apple' },
+                'asaas': { set: 'fas', icon: 'file-invoice' },
+                'autodesk': { set: 'fab', icon: 'autodesk' },
+                'baidu': { set: 'fas', icon: 'globe' },
+                'banqi': { set: 'fas', icon: 'university' },
+                'beboo': { set: 'fas', icon: 'child' },
+                'bet365': { set: 'fas', icon: 'dice' },
+                'binance': { set: 'fab', icon: 'bitcoin' },
+                'bipa': { set: 'fas', icon: 'coins' },
+                'bitso': { set: 'fas', icon: 'coins' },
+                'blablacar': { set: 'fas', icon: 'car' },
+                'bradesco': { set: 'fas', icon: 'university' },
+                'brahma': { set: 'fas', icon: 'beer' },
+                'bv': { set: 'fas', icon: 'university' },
+                'c6 bank': { set: 'fas', icon: 'university' },
+                'caixa': { set: 'fas', icon: 'university' },
+                'casino/bet': { set: 'fas', icon: 'dice' },
+                'celcoin': { set: 'fas', icon: 'mobile-alt' },
+                'coinbase': { set: 'fab', icon: 'bitcoin' },
+                'corona': { set: 'fas', icon: 'beer' },
+                'crefisamais': { set: 'fas', icon: 'university' },
+                'cruzeiro': { set: 'fas', icon: 'futbol' },
+                'cupidmedia': { set: 'fas', icon: 'heart' },
+                'daki': { set: 'fas', icon: 'shopping-basket' },
+                'discord': { set: 'fab', icon: 'discord' },
+                'dotz': { set: 'fas', icon: 'star' },
+                'e-mail': { set: 'fas', icon: 'envelope' },
+                'ebay': { set: 'fab', icon: 'ebay' },
+                'enjoei': { set: 'fas', icon: 'tshirt' },
+                'etoro': { set: 'fas', icon: 'chart-line' },
+                'facebook': { set: 'fab', icon: 'facebook' },
+                'facily': { set: 'fas', icon: 'shopping-bag' },
+                'familhao': { set: 'fas', icon: 'users' },
+                'fastearn': { set: 'fas', icon: 'coins' },
+                'firebase': { set: 'fas', icon: 'database' },
+                'gappx': { set: 'fas', icon: 'chart-line' },
+                'getninjas': { set: 'fas', icon: 'briefcase' },
+                'google': { set: 'fab', icon: 'google' },
+                'google chat': { set: 'fab', icon: 'google' },
+                'googlemsgr': { set: 'fab', icon: 'google' },
+                'googlevoice': { set: 'fab', icon: 'google' },
+                'govbr': { set: 'fas', icon: 'id-card' },
+                'grindr': { set: 'fab', icon: 'grindr' },
+                'guiche web': { set: 'fas', icon: 'laptop' },
+                'gurubets': { set: 'fas', icon: 'dice' },
+                'icq': { set: 'fab', icon: 'icq' },
+                'ifood': { set: 'fas', icon: 'utensils' },
+                'infinitepay': { set: 'fas', icon: 'university' },
+                'instagram': { set: 'fab', icon: 'instagram' },
+                'itau': { set: 'fas', icon: 'university' },
+                'iti': { set: 'fas', icon: 'university' },
+                'kakaotalk': { set: 'fas', icon: 'comments' },
+                'kwai': { set: 'fas', icon: 'video' },
+                'lalamove': { set: 'fas', icon: 'truck' },
+                'line msg': { set: 'fab', icon: 'line' },
+                'linkedin': { set: 'fab', icon: 'linkedin' },
+                'luup': { set: 'fas', icon: 'bicycle' },
+                'magalu': { set: 'fas', icon: 'shopping-bag' },
+                'mamba': { set: 'fas', icon: 'heart' },
+                'manus': { set: 'fas', icon: 'hand-paper' },
+                'meliuz': { set: 'fas', icon: 'percent' },
+                'mercado': { set: 'fas', icon: 'shopping-cart' },
+                'meseems': { set: 'fas', icon: 'eye' },
+                'microsoft': { set: 'fab', icon: 'microsoft' },
+                'monzo': { set: 'fas', icon: 'university' },
+                'moonpay': { set: 'fas', icon: 'moon' },
+                'nao me perturbe': { set: 'fas', icon: 'ban' },
+                'natura avon': { set: 'fas', icon: 'leaf' },
+                'naver': { set: 'fas', icon: 'search' },
+                'neon': { set: 'fas', icon: 'university' },
+                'netflix': { set: 'fab', icon: 'netflix' },
+                'next': { set: 'fas', icon: 'university' },
+                'ngcash': { set: 'fas', icon: 'coins' },
+                'nike': { set: 'fab', icon: 'nike' },
+                'nubank': { set: 'fas', icon: 'credit-card' },
+                'ok.ru': { set: 'fas', icon: 'comments' },
+                'okx': { set: 'fas', icon: 'coins' },
+                'olx': { set: 'fas', icon: 'tag' },
+                'outlier': { set: 'fas', icon: 'chart-bar' },
+                'outro serviço? não está aqui? compre outros!': { set: 'fas', icon: 'star' },
+                'seu serviço não está aqui? compre outros!': { set: 'fas', icon: 'star' },
+                'pagbank': { set: 'fas', icon: 'university' },
+                'parimatch': { set: 'fas', icon: 'dice' },
+                'paypal': { set: 'fab', icon: 'paypal' },
+                'paysera': { set: 'fas', icon: 'university' },
+                'pedir gas': { set: 'fas', icon: 'fire' },
+                'pgbonus': { set: 'fas', icon: 'dice' },
+                'pof.com': { set: 'fas', icon: 'heart' },
+                'premmia': { set: 'fas', icon: 'trophy' },
+                'privalia': { set: 'fas', icon: 'tag' },
+                'protonmail': { set: 'fas', icon: 'shield-alt' },
+                'quero-q pag': { set: 'fas', icon: 'qrcode' },
+                'radquest': { set: 'fas', icon: 'map' },
+                'rappi': { set: 'fas', icon: 'motorcycle' },
+                'reclameaqui': { set: 'fas', icon: 'exclamation-triangle' },
+                'revolut': { set: 'fab', icon: 'revolut' },
+                'ripio': { set: 'fas', icon: 'coins' },
+                'santander': { set: 'fas', icon: 'university' },
+                'serasa': { set: 'fas', icon: 'shield-alt' },
+                'shein': { set: 'fas', icon: 'tshirt' },
+                'shellbox': { set: 'fas', icon: 'box' },
+                'shopee': { set: 'fas', icon: 'shopping-bag' },
+                'sicredi': { set: 'fas', icon: 'university' },
+                'skrill': { set: 'fab', icon: 'skrill' },
+                'snapchat': { set: 'fab', icon: 'snapchat' },
+                'soop': { set: 'fas', icon: 'video' },
+                'spaten': { set: 'fas', icon: 'beer' },
+                'steam': { set: 'fab', icon: 'steam' },
+                'telegram': { set: 'fab', icon: 'telegram' },
+                'temu': { set: 'fas', icon: 'shopping-bag' },
+                'tencent qq': { set: 'fas', icon: 'comments' },
+                'tick': { set: 'fas', icon: 'check-circle' },
+                'ticketmaster': { set: 'fas', icon: 'ticket-alt' },
+                'tiktok/douyin': { set: 'fab', icon: 'tiktok' },
+                'tinder': { set: 'fas', icon: 'fire' },
+                'totalpass': { set: 'fas', icon: 'dumbbell' },
+                'twitter': { set: 'fab', icon: 'twitter' },
+                'uber': { set: 'fab', icon: 'uber' },
+                'ubisoft': { set: 'fab', icon: 'ubisoft' },
+                'ultragaz': { set: 'fas', icon: 'fire' },
+                'uol': { set: 'fas', icon: 'newspaper' },
+                'valora': { set: 'fas', icon: 'coins' },
+                'viber': { set: 'fab', icon: 'viber' },
+                'vk.com': { set: 'fab', icon: 'vk' },
+                'voltz': { set: 'fas', icon: 'bolt' },
+                'walmart': { set: 'fas', icon: 'shopping-cart' },
+                'webmotors': { set: 'fas', icon: 'car' },
+                'wechat': { set: 'fab', icon: 'weixin' },
+                'weststein': { set: 'fas', icon: 'university' },
+                'whatsapp': { set: 'fab', icon: 'whatsapp' },
+                'will': { set: 'fas', icon: 'coins' },
+                'winzo': { set: 'fas', icon: 'trophy' },
+                'wirex': { set: 'fab', icon: 'bitcoin' },
+                'wise': { set: 'fas', icon: 'coins' },
+                'xbox': { set: 'fab', icon: 'xbox' },
+                'xiaomi': { set: 'fas', icon: 'mobile-alt' },
+                'yahoo': { set: 'fab', icon: 'yahoo' },
+                'yalla': { set: 'fas', icon: 'comments' },
+                'yandex': { set: 'fas', icon: 'search' },
+                'yowin': { set: 'fas', icon: 'trophy' },
+                'zedelivery': { set: 'fas', icon: 'motorcycle' },
+                'zeenow': { set: 'fas', icon: 'play' },
+                'zoho': { set: 'fas', icon: 'cloud' },
+            };
+            const key = name.toLowerCase().trim();
+            return map[key] || { set: 'fas', icon: 'sim-card' };
+        }
+
+        function renderServices(services) {
+            const container = document.getElementById('servicesList');
+            if (!services.length) {
+                container.innerHTML = '<div class="empty-state"><div class="icon"><i class="fas fa-box-open"></i></div><p>Nenhum serviço encontrado</p></div>';
+                return;
+            }
+
+            let html = '<div class="service-cards">';
+            services.forEach((s, i) => {
+                const disp = s.qtd_disp || 0;
+                const outOfStock = disp < 1;
+                const iconData = getServiceIcon(s.nome);
+                const featured = s.id === 'ot' ? ' service-card--featured' : '';
+                html += `
+                    <div class="service-card ${outOfStock ? 'service-card--disabled' : ''}${featured}" data-id="${s.id}">
+                        <div class="service-card-left">
+                            <div class="service-card-icon">
+                                <i class="${iconData.set} fa-${iconData.icon}"></i>
+                            </div>
+                            <div class="service-card-info">
+                                <div class="service-card-name">${s.nome}</div>
+                                <div class="service-card-sub">${disp} disponível${disp !== 1 ? 'is' : ''}</div>
+                            </div>
+                        </div>
+                        <div class="service-card-right">
+                            <div class="service-card-prices">
+                                <div class="service-card-price">R$ ${s.preco.toFixed(2).replace('.',',')}</div>
+                                <div class="service-card-change ${disp > 5 ? 'change-up' : (disp > 0 ? 'change-warn' : 'change-down')}">
+                                    ${disp > 10 ? '<i class="fas fa-arrow-up"></i>' : (disp > 0 ? '<i class="fas fa-minus"></i>' : '<i class="fas fa-arrow-down"></i>')}
+                                    ${disp} disp
+                                </div>
+                            </div>
+                            <button class="service-card-btn select-service" data-id="${s.id}" ${outOfStock ? 'disabled' : ''}>
+                                ${outOfStock ? 'Indisponível' : 'Comprar'}
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            container.innerHTML = html;
+
+            document.querySelectorAll('.select-service').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.dataset.id;
+                    const service = allServices.find(s => s.id === id);
+                    if (service) startCheckout(service);
+                });
+            });
+        }
+
+        function filterServices() {
+            const q = document.getElementById('serviceSearch').value.toLowerCase();
+            const filtered = allServices.filter(s => s.nome.toLowerCase().includes(q) || s.id.toLowerCase().includes(q));
+            renderServices(filtered);
+        }
+
+        function showStep(id) {
+            ['stepSelect','stepConfirm','stepPayment','stepCode','loadingOverlay'].forEach(s => {
+                document.getElementById(s).style.display = s === id ? 'block' : 'none';
+            });
+        }
+
+        function startCheckout(service) {
+            selectedService = service;
+            const iconData = getServiceIcon(service.nome);
+            document.getElementById('confirmName').textContent = service.nome;
+            document.getElementById('confirmId').textContent = service.id;
+            document.getElementById('confirmIcon').innerHTML = `<i class="${iconData.set} fa-${iconData.icon}"></i>`;
+            document.getElementById('confirmPrice').textContent = 'R$ ' + service.preco.toFixed(2).replace('.', ',');
+            showStep('stepConfirm');
+        }
+
+        function cancelCheckout() {
+            selectedService = null;
+            showStep('stepSelect');
+        }
+
+        function backToConfirm() {
+            if (paymentInterval) clearInterval(paymentInterval);
+            paymentInterval = null;
+            showStep('stepConfirm');
+        }
+
+        async function confirmCheckout() {
+            if (!selectedService) return;
+            const service = selectedService;
+            showStep('loadingOverlay');
+            document.getElementById('loadingText').textContent = 'Gerando pagamento...';
+
+            try {
+                const res = await fetchAPI('/api/guest/checkout', {
+                    method: 'POST',
+                    body: JSON.stringify({ serviceId: service.id })
+                });
+
+                currentGuestKey = res.guestKey;
+                currentPaymentId = res.payment.id;
+
+                document.getElementById('paymentServiceName').textContent = service.nome;
+                const valorStr = 'R$ ' + service.preco.toFixed(2).replace('.', ',');
+                document.getElementById('paymentValue').textContent = valorStr;
+
+                const pixContainer = document.getElementById('pixContainer');
+                if (res.payment.qr_code_base64) {
+                    document.getElementById('pixQRCode').innerHTML = `<img src="data:image/png;base64,${res.payment.qr_code_base64}" alt="QR Code PIX">`;
+                } else {
+                    document.getElementById('pixQRCode').innerHTML = '<div style="padding:20px;color:var(--gray);"><i class="fas fa-qrcode" style="font-size:3rem;"></i></div>';
+                }
+                document.getElementById('pixValueDisplay').textContent = valorStr;
+                document.getElementById('pixCodeDisplay').textContent = res.payment.qr_code || 'Código indisponível';
+
+                const statusEl = document.getElementById('pixPaymentStatus');
+                statusEl.className = 'pix-status pending';
+                statusEl.innerHTML = '<i class="fas fa-clock"></i> Aguardando pagamento...';
+
+                showStep('stepPayment');
+
+                let startTime = Date.now();
+                const maxWait = 11 * 60 * 1000;
+
+                if (paymentInterval) clearInterval(paymentInterval);
+                paymentInterval = setInterval(async () => {
+                    try {
+                        if (Date.now() - startTime > maxWait) {
+                            clearInterval(paymentInterval);
+                            paymentInterval = null;
+                            statusEl.className = 'pix-status expired';
+                            statusEl.innerHTML = '<i class="fas fa-times-circle"></i> PIX Expirado!';
+                            showToast('O tempo do PIX expirou. Faça uma nova compra.', 'error');
+                            return;
+                        }
+
+                        const check = await fetchAPI('/api/guest/check-payment', {
+                            method: 'POST',
+                            body: JSON.stringify({ paymentId: currentPaymentId, guestKey: currentGuestKey })
+                        });
+
+                        if (check.status === 'approved') {
+                            clearInterval(paymentInterval);
+                            paymentInterval = null;
+
+                            statusEl.className = 'pix-status completed';
+                            statusEl.innerHTML = '<i class="fas fa-check-circle"></i> Pagamento Confirmado!';
+
+                            setTimeout(async () => {
+                                const statusRes = await fetchAPI('/api/guest/check/' + currentGuestKey);
+                                if (statusRes.codigo) {
+                                    document.getElementById('codigoDisplay').textContent = statusRes.codigo;
+                                    showStep('stepCode');
+                                }
+                            }, 2000);
+                        } else if (check.status === 'expired') {
+                            clearInterval(paymentInterval);
+                            paymentInterval = null;
+                            statusEl.className = 'pix-status expired';
+                            statusEl.innerHTML = '<i class="fas fa-times-circle"></i> PIX Expirado!';
+                            showToast('O tempo do PIX expirou. Faça uma nova compra.', 'error');
+                        }
+                    } catch (e) {}
+                }, 3000);
+
+            } catch (err) {
+                showStep('stepSelect');
+                showToast(err.message, 'error');
+            }
+        }
+
+        async function testCheckout() {
+            if (!selectedService) return;
+            const service = selectedService;
+            showStep('loadingOverlay');
+            document.getElementById('loadingText').textContent = 'Executando teste...';
+
+            try {
+                const res = await fetchAPI('/api/guest/test-checkout', {
+                    method: 'POST',
+                    body: JSON.stringify({ serviceId: service.id })
+                });
+
+                currentGuestKey = res.guestKey;
+                currentPaymentId = res.payment.id;
+                document.getElementById('codigoDisplay').textContent = res.codigo;
+
+                showToast('Teste OK! Código: ' + res.codigo, 'success');
+                showStep('stepCode');
+            } catch (err) {
+                showStep('stepConfirm');
+                showToast('Erro no teste: ' + err.message, 'error');
+            }
+        }
+
+        function copyPixCode() {
+            const code = document.getElementById('pixCodeDisplay').textContent;
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(code).then(() => showToast('Código PIX copiado!', 'success')).catch(() => fallbackCopy(code));
+            } else {
+                fallbackCopy(code);
+            }
+        }
+
+        function copyCode() {
+            const code = document.getElementById('codigoDisplay').textContent;
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(code).then(() => showToast('Código copiado!', 'success')).catch(() => fallbackCopy(code));
+            } else {
+                fallbackCopy(code);
+            }
+        }
+
+        function fallbackCopy(text) {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            ta.remove();
+            showToast('Código copiado!', 'success');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadGuestServices();
+        });
+    </script>
+</body>
+</html>

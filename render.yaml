@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: kaeli-system
+    env: node
+    region: ohio
+    buildCommand: npm install
+    startCommand: cd website && bash start.sh
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: MONGO_URI
+        sync: false
+      - key: MONGO_DB
+        value: kaeli_system
+      - key: BOT_TOKEN
+        sync: false
+      - key: API_BASE
+        value: https://kaeli-system.onrender.com

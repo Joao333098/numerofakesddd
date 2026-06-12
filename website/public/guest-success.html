@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra Concluída - Kaeli System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>@</text></svg>">
+</head>
+<body>
+    <canvas id="particles-canvas"></canvas>
+
+    <nav class="navbar">
+        <a href="/" class="logo"><i class="fas fa-bolt"></i> KAELI<span>SYSTEM</span></a>
+        <button class="hamburger"><span></span><span></span><span></span></button>
+        <ul class="nav-links">
+            <li><a href="/"><i class="fas fa-home"></i> Início</a></li>
+            <li><a href="/guest"><i class="fas fa-bolt"></i> Compra Rápida</a></li>
+            <li><a href="/login"><i class="fas fa-sign-in-alt"></i> Entrar</a></li>
+        </ul>
+    </nav>
+
+    <div class="dashboard">
+        <div class="dashboard-header">
+            <div class="dashboard-welcome">
+                <h1><i class="fas fa-check-circle" style="color:#00c853;"></i> Compra <span class="highlight">Concluída</span></h1>
+                <p>Seu pagamento foi confirmado e seu código de entrega foi gerado</p>
+            </div>
+        </div>
+
+        <div class="section-card" style="text-align:center;max-width:600px;margin:0 auto;">
+            <div style="font-size:3rem;color:#00c853;margin-bottom:16px;">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2 style="margin-bottom:8px;">Pagamento Aprovado!</h2>
+            <p style="color:var(--gray);margin-bottom:24px;">Seu código de entrega foi gerado com sucesso.</p>
+
+            <div class="info-card" style="border:1px solid rgba(0,200,83,0.2);border-radius:14px;padding:28px;margin-bottom:20px;">
+                <div style="font-size:0.85rem;color:var(--gray);margin-bottom:8px;">Seu código de entrega:</div>
+                <div id="codigoDisplay" style="font-size:2.4rem;font-family:'Otomanopee One',sans-serif;color:var(--gold);letter-spacing:6px;background:rgba(255,255,255,0.03);padding:16px;border-radius:12px;border:1px solid rgba(255,215,0,0.2);margin-bottom:16px;user-select:all;">------</div>
+                <button class="btn btn-primary btn-sm" onclick="copyCode()" style="justify-content:center;width:auto;margin:0 auto;">
+                    <i class="fas fa-copy"></i> Copiar Código
+                </button>
+            </div>
+
+            <div class="info-card" style="border:1px solid rgba(255,26,26,0.15);border-radius:14px;padding:24px;text-align:left;">
+                <h3 style="font-size:1rem;margin-bottom:12px;"><i class="fas fa-info-circle" style="color:var(--red-light);"></i> Próximos Passos</h3>
+                <div style="display:flex;flex-direction:column;gap:12px;">
+                    <div style="display:flex;gap:12px;align-items:flex-start;">
+                        <div style="background:var(--red);width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;">1</div>
+                        <div style="font-size:0.9rem;color:var(--gray);">Entre no nosso servidor do Discord clicando <a href="https://discord.gg/XaE9dvNj" target="_blank" style="color:var(--red-light);font-weight:700;">aqui</a></div>
+                    </div>
+                    <div style="display:flex;gap:12px;align-items:flex-start;">
+                        <div style="background:var(--red);width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;">2</div>
+                        <div style="font-size:0.9rem;color:var(--gray);">Cole o código acima em <strong>qualquer chat</strong> do servidor</div>
+                    </div>
+                    <div style="display:flex;gap:12px;align-items:flex-start;">
+                        <div style="background:var(--red);width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;">3</div>
+                        <div style="font-size:0.9rem;color:var(--gray);">O bot irá reconhecer, apagar a mensagem e enviar o número + SMS no seu privado</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top:20px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+                <a href="/guest" class="btn btn-primary btn-sm"><i class="fas fa-redo"></i> Nova Compra</a>
+                <a href="/" class="btn btn-outline btn-sm"><i class="fas fa-home"></i> Voltar ao Início</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 <a href="/">Kaeli System</a> - Todos os direitos reservados <i class="fas fa-bolt"></i></p>
+    </footer>
+
+    <script src="/js/script.js"></script>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const guestKey = params.get('key');
+        const codigo = params.get('codigo');
+
+        if (codigo) {
+            document.getElementById('codigoDisplay').textContent = codigo;
+        } else if (guestKey) {
+            (async () => {
+                try {
+                    const data = await fetchAPI('/api/guest/check/' + guestKey);
+                    if (data.codigo) {
+                        document.getElementById('codigoDisplay').textContent = data.codigo;
+                    }
+                } catch (e) {}
+            })();
+        }
+
+        function copyCode() {
+            const code = document.getElementById('codigoDisplay').textContent;
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(code).then(() => showToast('Código copiado!', 'success')).catch(() => fallbackCopy(code));
+            } else {
+                fallbackCopy(code);
+            }
+        }
+
+        function fallbackCopy(text) {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            ta.remove();
+            showToast('Código copiado!', 'success');
+        }
+    </script>
+</body>
+</html>
